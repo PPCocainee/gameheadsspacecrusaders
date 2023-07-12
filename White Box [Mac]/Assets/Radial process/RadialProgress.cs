@@ -11,20 +11,24 @@ public class RadialProgress : MonoBehaviour
 
     [SerializeField] float speed;
 
-    float currentValue; 
+     
     
     void Update()
     {
-        if (currentValue < 100 && GameManager.instance.startHacking)
+        if (GameManager.instance.currentHackingValue < 100 && GameManager.instance.startHacking)
         {
-            currentValue += speed * Time.deltaTime;
-            text.text = ((int)currentValue).ToString() + "%"; 
+            GameManager.instance.currentHackingValue += speed * Time.deltaTime;
+            text.text = ((int)GameManager.instance.currentHackingValue).ToString() + "%"; 
         }
         else
         {
             text.text = "Done";
         }
-        image.fillAmount = currentValue / 100; 
+        image.fillAmount = GameManager.instance.currentHackingValue / 100;
 
+        if (GameManager.instance.currentHackingValue / 100 >= 0.999f)
+        {
+            GameManager.instance.HackingComplete = true;
+        }
     }
 }

@@ -30,6 +30,8 @@ public class UserInput : MonoBehaviour
         controls.Movement.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Hack.Hacking.performed += ctx => StartHacking();
         controls.Hack.Hacking.canceled += ctx => StartHacking();
+        controls.Swap.Swap.performed += ctx => SwapCharacter();
+        
     }
 
     private void OnEnable()
@@ -45,12 +47,37 @@ public class UserInput : MonoBehaviour
 
     private void StartHacking()
     {
-        GameManager.instance.startHacking = true;
+        if (controls.Hack.Hacking.IsPressed())
+        {
+            GameManager.instance.startHacking = true;
+        }
+        else
+        {
+            GameManager.instance.startHacking = false;
+            GameManager.instance.currentHackingValue = 0f;
+        }
+        
     }
 
     private void EndHacking()
     {
-        GameManager.instance.startHacking = false;
+     
+           GameManager.instance.startHacking = false;
+        GameManager.instance.currentHackingValue = 0f;
+
+    }
+
+    private void SwapCharacter()
+    {
+        if (GameManager.instance.HackingComplete && GameManager.instance.controllingRobot)
+        {
+            GameManager.instance.controllingRobot = false;
+        }
+
+        else if (GameManager.instance.HackingComplete && !GameManager.instance.controllingRobot) 
+        {
+            GameManager.instance.controllingRobot = true;
+        }
     }
 }
 

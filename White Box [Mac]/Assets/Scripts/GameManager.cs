@@ -8,6 +8,13 @@ public class GameManager : MonoBehaviour
 
     public bool startHacking;
 
+    public float currentHackingValue;
+
+    public bool HackingComplete;
+
+    public bool controllingRobot; 
+
+
     private void Awake()
     {
         if (instance == null)
