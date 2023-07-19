@@ -35,6 +35,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e543a90-9916-4b92-9448-22aa84cb2d33"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -257,6 +266,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ad9261d-e213-4af7-a8c8-63634965cdc7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard "",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9c2babd-ad40-4185-8844-8008cfdcc94b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -270,7 +301,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""id"": ""fb899ce7-4b22-4621-b62a-07ffc697e699"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -298,6 +329,45 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Swap "",
+            ""id"": ""5111499d-f980-443b-b12b-330b7f9c8e26"",
+            ""actions"": [
+                {
+                    ""name"": ""Swap"",
+                    ""type"": ""Button"",
+                    ""id"": ""9fd5e4ca-9666-4d35-aae1-9ba6067f0d7e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c7aa121a-182a-468a-84d3-2a0650d49c3d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd10c82c-7398-4da5-8475-829c4975b98e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard "",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -316,9 +386,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // Movement 
         m_Movement = asset.FindActionMap("Movement ", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
+        m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         // Hack
         m_Hack = asset.FindActionMap("Hack", throwIfNotFound: true);
         m_Hack_Hacking = m_Hack.FindAction("Hacking", throwIfNotFound: true);
+        // Swap 
+        m_Swap = asset.FindActionMap("Swap ", throwIfNotFound: true);
+        m_Swap_Swap = m_Swap.FindAction("Swap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -379,11 +453,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Movement;
     private IMovementActions m_MovementActionsCallbackInterface;
     private readonly InputAction m_Movement_Move;
+    private readonly InputAction m_Movement_Jump;
     public struct MovementActions
     {
         private @Controls m_Wrapper;
         public MovementActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Movement_Move;
+        public InputAction @Jump => m_Wrapper.m_Movement_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -396,6 +472,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnMove;
+                @Jump.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -403,6 +482,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -440,6 +522,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public HackActions @Hack => new HackActions(this);
+
+    // Swap 
+    private readonly InputActionMap m_Swap;
+    private ISwapActions m_SwapActionsCallbackInterface;
+    private readonly InputAction m_Swap_Swap;
+    public struct SwapActions
+    {
+        private @Controls m_Wrapper;
+        public SwapActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Swap => m_Wrapper.m_Swap_Swap;
+        public InputActionMap Get() { return m_Wrapper.m_Swap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SwapActions set) { return set.Get(); }
+        public void SetCallbacks(ISwapActions instance)
+        {
+            if (m_Wrapper.m_SwapActionsCallbackInterface != null)
+            {
+                @Swap.started -= m_Wrapper.m_SwapActionsCallbackInterface.OnSwap;
+                @Swap.performed -= m_Wrapper.m_SwapActionsCallbackInterface.OnSwap;
+                @Swap.canceled -= m_Wrapper.m_SwapActionsCallbackInterface.OnSwap;
+            }
+            m_Wrapper.m_SwapActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Swap.started += instance.OnSwap;
+                @Swap.performed += instance.OnSwap;
+                @Swap.canceled += instance.OnSwap;
+            }
+        }
+    }
+    public SwapActions @Swap => new SwapActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -461,9 +576,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
     public interface IHackActions
     {
         void OnHacking(InputAction.CallbackContext context);
+    }
+    public interface ISwapActions
+    {
+        void OnSwap(InputAction.CallbackContext context);
     }
 }
