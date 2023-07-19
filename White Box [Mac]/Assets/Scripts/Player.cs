@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public bool isRobot;
     public bool Grounded;
     public Transform groundCheck;
+    public Animator Animation; 
 
     private Rigidbody2D rb;
     private float moveInput;
@@ -34,11 +35,20 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        if ((!isRobot && !GameManager.instance.controllingRobot) || (isRobot && GameManager.instance.controllingRobot))
+        if ((!isRobot && !GameManager.instance.controllingRobot))
         {
             moveInput = UserInput.instance.moveInput.x;
 
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            //Animation.SetFloat("Moving", Mathf.Abs(moveInput));
+          
+        }
+        if ((isRobot && GameManager.instance.controllingRobot))
+        {
+            moveInput = UserInput.instance.moveInput.x;
+
+            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            Animation.SetFloat("Moving", Mathf.Abs(moveInput));
         }
     }
 
