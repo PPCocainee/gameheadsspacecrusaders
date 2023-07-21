@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class RadialShown : MonoBehaviour
 {
-    public GameObject RadialObject; 
+
+    public GameObject RadialObject;
+    public GameObject Robot; 
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +15,7 @@ public class RadialShown : MonoBehaviour
         {
             RadialObject.SetActive(true);
             GameManager.instance.currentHackingValue = 0f;
+            GameManager.instance.Robot = Robot; 
         }
     }
 

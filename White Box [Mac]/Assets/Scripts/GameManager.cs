@@ -12,8 +12,9 @@ public class GameManager : MonoBehaviour
 
     public bool HackingComplete;
 
-    public bool controllingRobot; 
+    public bool controllingRobot;
 
+    public GameObject Robot; 
 
     private void Awake()
     {

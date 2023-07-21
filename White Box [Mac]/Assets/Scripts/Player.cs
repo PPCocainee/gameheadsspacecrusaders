@@ -40,15 +40,15 @@ public class Player : MonoBehaviour
             moveInput = UserInput.instance.moveInput.x;
 
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-            //Animation.SetFloat("Moving", Mathf.Abs(moveInput));
+            
           
         }
-        if ((isRobot && GameManager.instance.controllingRobot))
+        if ((isRobot && GameManager.instance.controllingRobot && GameManager.instance.Robot == gameObject))
         {
             moveInput = UserInput.instance.moveInput.x;
 
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-            Animation.SetFloat("Moving", Mathf.Abs(moveInput));
+            Animation.SetFloat("Moving", Mathf.Abs(moveInput)); 
         }
     }
 
@@ -58,8 +58,7 @@ public class Player : MonoBehaviour
         {
             if ((!isRobot && !GameManager.instance.controllingRobot) || (isRobot && GameManager.instance.controllingRobot))
             {
-                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                print("Should be jumping");
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse); 
             }
             
         }
