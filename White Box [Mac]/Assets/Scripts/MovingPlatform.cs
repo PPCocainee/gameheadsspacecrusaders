@@ -15,6 +15,13 @@ public class MovingPlatform : MonoBehaviour
         Vector2 target = currentMovementTarget();
 
         platform.position = Vector2.Lerp(platform.position, target, speed * Time.deltaTime);
+
+        float distance = (target - (Vector2)platform.position).magnitude;
+
+        if(distance <= 0.1f)
+        {
+            direction *= -1;
+        }
     }
 
     //moves to start and endpoint
