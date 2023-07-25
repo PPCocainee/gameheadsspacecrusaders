@@ -67,8 +67,6 @@ public class UserInput : MonoBehaviour
         GameManager.instance.startHacking = false;
         GameManager.instance.currentHackingValue = 0f;
 
-        //GameObject.newRobot = GameObject.FindGameObjectsWithTag("robot1");
-       // HackedRobots.Add(newRobot); 
     }
 
     private void SwapCharacter()

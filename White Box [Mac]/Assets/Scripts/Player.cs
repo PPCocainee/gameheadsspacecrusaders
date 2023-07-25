@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private float moveInput;
-    //private Controls controls;
+    
 
 
 
@@ -40,8 +40,12 @@ public class Player : MonoBehaviour
             moveInput = UserInput.instance.moveInput.x;
 
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-            
-          
+            Animation.SetFloat("Moving", Mathf.Abs(moveInput));
+            Vector3 Newscale = Animation.transform.localScale;
+            if(moveInput > 0.1f)
+            {
+                Newscale.x = Mathf.Abs(Newscale.x);
+            }
         }
         if ((isRobot && GameManager.instance.controllingRobot && GameManager.instance.Robot == gameObject))
         {
