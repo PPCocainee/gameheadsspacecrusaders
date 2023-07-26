@@ -22,13 +22,14 @@ public class RadialProgress : MonoBehaviour
         }
         else
         {
-            text.text = "Done";
+            text.text = "Hack";
         }
         image.fillAmount = GameManager.instance.currentHackingValue / 100;
 
         if (GameManager.instance.currentHackingValue / 100 >= 0.999f)
         {
             GameManager.instance.HackingComplete = true;
+            text.text = "Hack Compeleted";
         }
     }
 }

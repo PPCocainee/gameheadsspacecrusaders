@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
 
     public bool HackingComplete;
 
-    public bool controllingRobot; 
+    public bool controllingRobot;
 
+    public GameObject Robot; 
+
+    public MultipleTargetCamera Multiplecamera; 
 
     private void Awake()
     {
@@ -29,4 +32,26 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Update()
+    {
+        if (controllingRobot)
+        {
+            Multiplecamera.targets[0] = Robot.transform;
+        }
+        else
+        {
+            Multiplecamera.targets[0] = GameObject.FindWithTag("Player").transform; 
+        }
+
+
+    }
+
+
+
+
+
+
+
+
 }

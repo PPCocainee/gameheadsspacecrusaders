@@ -11,10 +11,11 @@ public class Player : MonoBehaviour
     public bool isRobot;
     public bool Grounded;
     public Transform groundCheck;
+    public Animator Animation; 
 
     private Rigidbody2D rb;
     private float moveInput;
-    //private Controls controls;
+    
 
 
 
@@ -34,11 +35,24 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        if ((!isRobot && !GameManager.instance.controllingRobot) || (isRobot && GameManager.instance.controllingRobot))
+        if ((!isRobot && !GameManager.instance.controllingRobot))
         {
             moveInput = UserInput.instance.moveInput.x;
 
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            Animation.SetFloat("Moving", Mathf.Abs(moveInput));
+            Vector3 Newscale = Animation.transform.localScale;
+            if(moveInput > 0.1f)
+            {
+                Newscale.x = Mathf.Abs(Newscale.x);
+            }
+        }
+        if ((isRobot && GameManager.instance.controllingRobot && GameManager.instance.Robot == gameObject))
+        {
+            moveInput = UserInput.instance.moveInput.x;
+
+            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            Animation.SetFloat("Moving", Mathf.Abs(moveInput)); 
         }
     }
 
@@ -48,8 +62,7 @@ public class Player : MonoBehaviour
         {
             if ((!isRobot && !GameManager.instance.controllingRobot) || (isRobot && GameManager.instance.controllingRobot))
             {
-                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                print("Should be jumping");
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse); 
             }
             
         }
