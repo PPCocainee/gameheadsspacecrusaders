@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Robot1
+  - Ground
   layers:
   - Default
   - TransparentFX

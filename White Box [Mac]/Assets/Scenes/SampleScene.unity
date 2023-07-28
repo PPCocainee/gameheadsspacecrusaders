@@ -237,6 +237,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &52160079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 52160080}
+  m_Layer: 0
+  m_Name: ---BackGround---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &52160080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52160079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100.435875, y: 165.64005, z: 0.5128311}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &180883619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1573,7 +1604,7 @@ Transform:
   - {fileID: 1921142928}
   - {fileID: 1940569440}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861849802
 GameObject:
@@ -2455,9 +2486,9 @@ GameObject:
   - component: {fileID: 1124169957}
   - component: {fileID: 1124169956}
   - component: {fileID: 1124169958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15153,7 +15184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171589481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3, y: -15.4, z: 0}
+  m_LocalPosition: {x: -6.3, y: -18, z: 0}
   m_LocalScale: {x: 0.39785728, y: 0.4022646, z: 0.019784685}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15193,12 +15224,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  jumpForce: 0.005
+  jumpForce: 0.003
   groundDist: 0
   isRobot: 0
   Grounded: 0
   groundCheck: {fileID: 1980671370}
   Animation: {fileID: 9900637}
+  hasJumped: 0
 --- !u!61 &1179412704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15357,9 +15389,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1223626381}
   - component: {fileID: 1223626380}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15392,7 +15424,7 @@ Transform:
   - {fileID: 2008209112}
   - {fileID: 1421521520}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251896059
 GameObject:
@@ -15811,7 +15843,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1411801993
 GameObject:
@@ -15855,7 +15887,7 @@ GameObject:
   - component: {fileID: 1421521520}
   - component: {fileID: 1421521522}
   - component: {fileID: 1421521521}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19636,7 +19668,7 @@ RectTransform:
   - {fileID: 2033229747}
   - {fileID: 1567124736}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -19789,6 +19821,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1779126675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1779126676}
+  m_Layer: 0
+  m_Name: ---Moving Platform---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1779126676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779126675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100.435875, y: 165.64005, z: 0.5128311}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781386884
 GameObject:
   m_ObjectHideFlags: 0
@@ -19804,7 +19867,7 @@ GameObject:
   - component: {fileID: 1781386885}
   m_Layer: 8
   m_Name: Daddy long legs
-  m_TagString: Robot1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19828,6 +19891,7 @@ MonoBehaviour:
   Grounded: 0
   groundCheck: {fileID: 1171589482}
   Animation: {fileID: 1031306586}
+  hasJumped: 0
 --- !u!50 &1781386886
 Rigidbody2D:
   serializedVersion: 4
@@ -20222,7 +20286,7 @@ Transform:
   - {fileID: 1089034723}
   - {fileID: 1953193486}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905312411
 GameObject:
@@ -20659,7 +20723,7 @@ GameObject:
   - component: {fileID: 2008209112}
   - component: {fileID: 2008209114}
   - component: {fileID: 2008209113}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21953,12 +22017,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  jumpForce: 0.1
+  jumpForce: 5
   groundDist: 0
   isRobot: 1
   Grounded: 0
   groundCheck: {fileID: 1579969782}
   Animation: {fileID: 478156771}
+  hasJumped: 0
 --- !u!50 &2046955004
 Rigidbody2D:
   serializedVersion: 4
@@ -21971,10 +22036,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 25
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -22101,7 +22166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4195215045732832049, guid: 0ca1c8865aca05943b8f78e631ad03e7, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4195215045732832049, guid: 0ca1c8865aca05943b8f78e631ad03e7, type: 3}
       propertyPath: m_LocalPosition.x

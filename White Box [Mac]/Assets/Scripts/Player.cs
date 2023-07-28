@@ -11,7 +11,10 @@ public class Player : MonoBehaviour
     public bool isRobot;
     public bool Grounded;
     public Transform groundCheck;
-    public Animator Animation; 
+    public Animator Animation;
+
+    public bool hasJumped = false; 
+
 
     private Rigidbody2D rb;
     private float moveInput;
@@ -66,13 +69,22 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (Grounded && UserInput.instance.controls.Movement.Jump.triggered)
+        if (Grounded && UserInput.instance.controls.Movement.Jump.triggered && !hasJumped)
         {
             if ((!isRobot && !GameManager.instance.controllingRobot) || (isRobot && GameManager.instance.controllingRobot))
             {
-                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse); 
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+
+                hasJumped = true; 
             }
             
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            hasJumped = false;
         }
     }
 
