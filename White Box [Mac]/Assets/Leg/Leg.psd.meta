@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb5914b5b9a9946fa9f766c6e24a12ba
+guid: 3ad5af59ace1dce4fb2e0d3f5fa953d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -76,213 +76,9 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Leg_0
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 2107
-        width: 592
-        height: 387
-      alignment: 9
-      pivot: {x: 0.49999985, y: 0.9232736}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c66b7215841e84e7883e15122aaa84d3
-      internalID: 1040012702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Leg_1
-      rect:
-        serializedVersion: 2
-        x: 875
-        y: 1942
-        width: 1093
-        height: 816
-      alignment: 9
-      pivot: {x: 0.47918496, y: 0.070631884}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d743187bc1da44d2dbec9315b4163137
-      internalID: 1690954055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Leg_2
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 1037
-        width: 203
-        height: 929
-      alignment: 9
-      pivot: {x: 0.49999955, y: 0.9118371}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21980e01295c9458eb97a7c16e3b4745
-      internalID: 1485305992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Leg_3
-      rect:
-        serializedVersion: 2
-        x: 602
-        y: 1009
-        width: 199
-        height: 927
-      alignment: 9
-      pivot: {x: 0.45426932, y: 0.9172237}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae0b02a07a89f4b8a979c3fbe8155169
-      internalID: -559035439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Leg_4
-      rect:
-        serializedVersion: 2
-        x: 1259
-        y: 1128
-        width: 545
-        height: 266
-      alignment: 9
-      pivot: {x: 0.21707326, y: 0.91054356}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bab611070c18b4aa691261435abc42aa
-      internalID: -1383081068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Leg_5
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 44
-        width: 208
-        height: 927
-      alignment: 9
-      pivot: {x: 0.456248, y: 0.90740645}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44adde858d2024194bf57cd884d1fd24
-      internalID: -128114400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Leg_6
-      rect:
-        serializedVersion: 2
-        x: 601
-        y: 53
-        width: 202
-        height: 930
-      alignment: 9
-      pivot: {x: 0.4774744, y: 0.910985}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 897688cb1212846a7bb071c2f8311830
-      internalID: 1445678533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Leg_7
-      rect:
-        serializedVersion: 2
-        x: 1312
-        y: 111
-        width: 542
-        height: 264
-      alignment: 9
-      pivot: {x: 0.21456358, y: 0.9136536}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1f99d435e66b4edf922d84d8ba73e43
-      internalID: -706537088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -293,18 +89,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Leg_0: 1040012702
-      Leg_5: -128114400
-      Leg_1: 1690954055
-      Leg_2: 1485305992
-      Leg_3: -559035439
-      Leg_6: 1445678533
-      Leg_4: -1383081068
-      Leg_7: -706537088
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
