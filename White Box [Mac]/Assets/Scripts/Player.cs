@@ -75,16 +75,21 @@ public class Player : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
-                hasJumped = true; 
+                hasJumped = true;
+                Animation.SetBool("isjumping", true);
             }
-            
+
+            Animation.SetTrigger("takeoff");
         }
+
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             hasJumped = false;
+            Animation.SetBool("isjumping", false);
         }
     }
 
