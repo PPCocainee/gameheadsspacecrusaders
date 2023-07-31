@@ -7,6 +7,7 @@ public class UserInput : MonoBehaviour
 {
     public static UserInput instance;
 
+    public List<GameObject> HackedRobots = new List<GameObject>();
 
     [HideInInspector] public Controls controls;
     [HideInInspector] public Vector2 moveInput;
@@ -50,6 +51,7 @@ public class UserInput : MonoBehaviour
         if (controls.Hack.Hacking.IsPressed())
         {
             GameManager.instance.startHacking = true;
+            GameManager.instance.controllingRobot = false;
         }
         else
         {
@@ -62,7 +64,7 @@ public class UserInput : MonoBehaviour
     private void EndHacking()
     {
      
-           GameManager.instance.startHacking = false;
+        GameManager.instance.startHacking = false;
         GameManager.instance.currentHackingValue = 0f;
 
     }

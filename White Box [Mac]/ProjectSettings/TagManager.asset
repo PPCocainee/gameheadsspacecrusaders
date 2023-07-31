@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Robot1
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -12,9 +14,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - Player
+  - Robot
+  - BK
   - 
   - 
   - 
@@ -38,6 +40,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BK
+    uniqueID: 927872859
+    locked: 0
+  - name: BK1
+    uniqueID: 4089665013
+    locked: 0
+  - name: BK2
+    uniqueID: 412712757
+    locked: 0
+  - name: BK3
+    uniqueID: 3735417595
+    locked: 0
+  - name: Tilemap
+    uniqueID: 3808144475
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
